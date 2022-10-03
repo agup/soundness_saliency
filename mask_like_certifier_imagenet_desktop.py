@@ -216,19 +216,14 @@ def main():
                     print(idx + i, vanilla_probs[i][sbest], AUC_probs[i][sbest], vanilla_probs[i][vanilla_labels[i]], AUC_probs[i][vanilla_labels[i]])
             auc_total += np.sum(AUC_probs[range(len(labels)), vanilla_labels] * (labels == vanilla_labels))
             if (idx + bs) % 1 == 0:
-                print(f"Clean ACC {clean_correct}/{total} \t {clean_correct / total}")
-                print(f"agree {agree}/{total} \t {agree / total}")
-                print(f"Agreement among incorrect {agree_incorrect}/{incorrect} \t {agree_incorrect / incorrect}")
-                print(f"Agreement among correct {agree - agree_incorrect}/{total - incorrect} \t {(agree - agree_incorrect) / (total - incorrect)}")
-                print(f'average completeness of predicts {completeness_total / total}')
+                
+                
+            
                 print(f'average worst completeness of wrong labels {worst_completeness_total / total}')
                 print(f'average worst completeness of all labels {all_completeness_total / total}')
-                print(f'average soundness of wrong labels {soundness_total / total}')
-                print(f'average worst soundness of wrong labels {worst_soundness_total / total}')
+                
                 print(f'average worst soundness of all labels {all_soundness_total / total}')
-                print(f'average soundness of second best labels {sbest_soundness_total / total}')
-                print(f'average auc for model prediction {auc_total / (total - incorrect)}')
-
+                
            
         
 
