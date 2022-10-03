@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+#***
+#SBATCH -N 1                  ## Node count
+#SBATCH --gres=gpu:1 --ntasks-per-node=1 -N 1
+#SBATCH -t 03:30:00           ## Walltime
+#SBATCH --mem=40G 
+#SBATCH -c 3
+#SBATCH --output=/n/fs/ptml/arushig/saliency/logevalIGOS
+#SBATCH --account=mltheory 
+
+export TMPDIR='/scratch'
+
+
+
+
+python saliency_certificate_Imagenet_desktop.py --steps 2000 --lr 0.05 \
+--bs 10 --noise_mode rand_image --noise_bs 10 --K 1 \
+--scale_list 4 --reg_l1_list 0.00002 --reg_tv_list 0.01 \
+--fit_label correct --dump_dir_suffix resnet50_bs10_bs10 \
+--start_end 0 300 --debug
