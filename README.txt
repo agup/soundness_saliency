@@ -1,7 +1,31 @@
 #First, please run save noise batch to save the batch of images that will be used to create Gamma for our method
-
+#We changed batch_size to 1000 so we had 1000 noise images. Here we have set it to 100 because of github file size limitations
 python3 save_noise_batch.py
 
-#Next, please provide 1) the file name of the target image and 2) the target label in order to generate a mask from our method
+#Next, we generate some random sample inputs (of course please replace with your own inputs if need be)
+#We have generated these images so their labels lie in [526  527 664 673 782 851]
+python3 generate_random_inputs.py
+
+#This should save in the folder input_data 2 files. sample_images.npy and sample_labels.npy
+
+#Next, to run our saliency method please type
+
+python saliency_certificate_Imagenet_desktop.py  --label_list 526  527 664 673 782 851  --image_input_path input_data/sample_images.npy --label_input_path input_data/sample_labels.npy  --steps 2000 --lr 0.05 \
+--bs 10 --noise_mode rand_image --noise_bs 10 --K 1 \
+--scale_list 4 --reg_l1_list 0.00002 --reg_tv_list 0.01 \
+--fit_label correct  \
+--start_end 0 300 --debug
+
+#Where label_list is the list of relevant labels from ImageNet (to save the computational burden of computing on 1000 labels) and image_input_path is the path to the images file and label_input_path is the path to the relevant labels.
+
+
+#Finally, to compute completeness and soundness, please run
+
+
+python mask_like_certifier_imagenet_desktop.py --label_list 526  527 664 673 782 851   --image_input_path input_data/sample_images.npy --label_input_path input_data/sample_labels.npy  --steps 200 --lr 0.05 --bs 10 --noise_mode rand_image --noise_bs 10 --K 1 \
+--scale_list 4 --reg_l1_list 0.00002 --reg_tv_list 0.01 --fit_label correct \
+--start_end 0 10 --debug 
+
+
 
 
