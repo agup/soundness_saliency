@@ -130,6 +130,7 @@ def main():
 
         dump_file = os.path.join(dump_dir, f'batchscore_{"cheating_" if cheating else ""}{curve_start}_{curve_end}_' + str(idx) + '.pkl')
         if not os.path.exists(dump_file):
+            print("creating score dict")
             score_dict = {}
             for scale, reg_l1, reg_tv, reg_ent in itertools.product(
                 scale_list, reg_l1_list, reg_tv_list, reg_ent_list):
