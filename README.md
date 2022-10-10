@@ -1,3 +1,18 @@
+This repository contains code for the paper New Definitions and Evaluations for Saliency Methods : Staying Intrinsic and Sound. NeuRIPS 2022.
+
+To cite this paper, please use the following BibTex entry:
+
+```
+@inproceedings{2022soundness,
+  title = {New Definitions and Evaluations for Saliency Methods : Staying Intrinsic and Sound},
+  author = {Arushi Gupta, Nikunj Saunshi, Dingli Yu, Kaifeng Lyu, Sanjeev Arora},
+  booktitle = {NeuRIPS 202},
+  year = {2022}
+}
+```
+
+We now describe how to run our simple masking method and compute completeness and soundness on the resulting maps.
+
 #First, please run save noise batch to save the batch of images that will be used to create Gamma for our method
 #You may not get the exact same results we did because we changed batch_size to 1000 in save_noise_batch.py  so we had 1000 noise images. Here we have set it to 100 because of github file size limitations
 
