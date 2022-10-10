@@ -1,5 +1,6 @@
 #First, please run save noise batch to save the batch of images that will be used to create Gamma for our method
-#We changed batch_size to 1000 so we had 1000 noise images. Here we have set it to 100 because of github file size limitations
+#You may not get the exact same results we did because we changed batch_size to 1000 in save_noise_batch.py  so we had 1000 noise images. Here we have set it to 100 because of github file size limitations
+
 python3 save_noise_batch.py
 
 #Next, we generate some random sample inputs (of course please replace with your own inputs if need be)
@@ -20,11 +21,12 @@ python saliency_certificate_Imagenet_desktop.py  --label_list 526  527 664 673 7
 
 
 #Finally, to compute completeness and soundness, please run
+#where start_end 0 50 means indices 0 through 50 will be processed
 
 
 python mask_like_certifier_imagenet_desktop.py --label_list 526  527 664 673 782 851   --image_input_path input_data/sample_images.npy --label_input_path input_data/sample_labels.npy  --steps 200 --lr 0.05 --bs 10 --noise_mode rand_image --noise_bs 10 --K 1 \
 --scale_list 4 --reg_l1_list 0.00002 --reg_tv_list 0.01 --fit_label correct \
---start_end 0 10 --debug 
+--start_end 0 50 --debug 
 
 
 
