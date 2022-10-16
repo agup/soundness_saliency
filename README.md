@@ -1,10 +1,10 @@
-This repository contains code for the paper New Definitions and Evaluations for Saliency Methods : Staying Intrinsic and Sound. NeuRIPS 2022.
+This repository contains code for the paper New Definitions and Evaluations for Saliency Methods : Staying Intrinsic, Complete, and Sound. NeuRIPS 2022.
 
 To cite this paper, please use the following BibTex entry:
 
 ```
 @inproceedings{2022soundness,
-  title = {New Definitions and Evaluations for Saliency Methods : Staying Intrinsic and Sound},
+  title = {New Definitions and Evaluations for Saliency Methods : Staying Intrinsic, Complete, and Sound},
   author = {Arushi Gupta, Nikunj Saunshi, Dingli Yu, Kaifeng Lyu, Sanjeev Arora},
   booktitle = {NeuRIPS},
   year = {2022}
